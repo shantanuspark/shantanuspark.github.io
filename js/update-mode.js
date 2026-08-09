@@ -2,43 +2,38 @@
   "use strict";
 
   var params = new URLSearchParams(window.location.search);
-  var isUpdateMode = params.get("update") === "true";
-  if (!isUpdateMode) {
+  if (params.get("update") !== "true") {
     return;
   }
 
-  document.body.classList.add("update-mode");
+  var currentSite = document.getElementById("updated-site");
+  var v2Site = document.getElementById("v2-site");
 
-  var legacySite = document.getElementById("legacy-site");
-  var updatedSite = document.getElementById("updated-site");
-
-  if (legacySite) {
-    legacySite.hidden = true;
+  if (currentSite) {
+    currentSite.hidden = true;
   }
-  if (updatedSite) {
-    updatedSite.hidden = false;
+  if (v2Site) {
+    v2Site.hidden = false;
   }
 
   var metadata = {
-    title: "Shantanu Deshmukh | Senior AI, Cloud & Distributed Systems Engineer",
-    description: "Senior Software Engineer with 11+ years building secure, reliable, large-scale cloud and distributed systems with growing AI/ML platform depth.",
+    title: "Shantanu Deshmukh | Senior Software Engineer · AI, Distributed Systems & Cloud",
+    description: "Senior Software Engineer at Microsoft with 11+ years designing large-scale distributed systems and cloud infrastructure — IEEE-published ML researcher with production AI engineering experience.",
     url: "https://shantanuspark.github.io/?update=true"
   };
 
   document.title = metadata.title;
 
-  function setAttribute(selector, attr, value) {
-    var element = document.querySelector(selector);
-    if (element) {
-      element.setAttribute(attr, value);
-    }
+  function setAttr(sel, attr, val) {
+    var el = document.querySelector(sel);
+    if (el) { el.setAttribute(attr, val); }
   }
 
-  setAttribute("#meta-description", "content", metadata.description);
-  setAttribute("#meta-og-title", "content", metadata.title);
-  setAttribute("#meta-og-description", "content", metadata.description);
-  setAttribute("#meta-og-url", "content", metadata.url);
-  setAttribute("#meta-twitter-title", "content", metadata.title);
-  setAttribute("#meta-twitter-description", "content", metadata.description);
-  setAttribute("#canonical-link", "href", metadata.url);
+  setAttr("#meta-description", "content", metadata.description);
+  setAttr("#meta-og-title", "content", metadata.title);
+  setAttr("#meta-og-description", "content", metadata.description);
+  setAttr("#meta-og-url", "content", metadata.url);
+  setAttr("#meta-twitter-title", "content", metadata.title);
+  setAttr("#meta-twitter-description", "content", metadata.description);
+  setAttr("#canonical-link", "href", metadata.url);
 })();
