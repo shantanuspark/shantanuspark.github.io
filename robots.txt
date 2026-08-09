@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shantanuspark.github.io/sitemap.xml
