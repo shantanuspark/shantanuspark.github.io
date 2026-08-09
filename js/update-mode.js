@@ -40,5 +40,5 @@
   setAttribute("#meta-og-url", "content", metadata.url);
   setAttribute("#meta-twitter-title", "content", metadata.title);
   setAttribute("#meta-twitter-description", "content", metadata.description);
-  setAttribute("#canonical-link", "href", "https://shantanuspark.github.io/");
+  setAttribute("#canonical-link", "href", metadata.url);
 })();
